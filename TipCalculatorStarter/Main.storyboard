@@ -28,6 +28,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o4r-5B-K1H">
+                                        <rect key="frame" x="306" y="52" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="themeSwitched:" destination="bx0-nC-RK9" eventType="valueChanged" id="h9Y-Lo-ouv"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -187,13 +194,17 @@
                         <viewLayoutGuide key="safeArea" id="VAm-FC-o9r"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="HrZ-DK-G9L" id="MC3-VF-BIn"/>
                         <outlet property="billAmountLabel" destination="5Ad-aI-n2z" id="Ar3-Gw-Bv4"/>
+                        <outlet property="headerView" destination="nv7-5a-Ifa" id="e57-Uq-gSg"/>
                         <outlet property="inputBillTextField" destination="MwY-QO-jcl" id="nUR-Di-dl8"/>
                         <outlet property="inputBillView" destination="ULC-Q1-MZh" id="Mel-OL-vcW"/>
                         <outlet property="outputTipView" destination="gwr-xO-EfE" id="A6O-h7-oHY"/>
                         <outlet property="restButton" destination="bkh-89-s0X" id="Obe-36-L1X"/>
+                        <outlet property="themeSwitch" destination="o4r-5B-K1H" id="1gy-y1-eMN"/>
                         <outlet property="tipAmountLabel" destination="m6n-xo-X3J" id="wqo-SU-Yqc"/>
                         <outlet property="tipAmountOutputLabel" destination="Kf0-dM-ZwP" id="bdU-58-evm"/>
+                        <outlet property="tipCalculatorTopLabel" destination="2m6-Ps-pM4" id="F4J-53-21C"/>
                         <outlet property="tipPercentageLabel" destination="K6l-RR-5l6" id="7id-py-EGS"/>
                         <outlet property="tipPercentageSegmentedController" destination="WMB-kQ-RjK" id="FKe-Uh-Z6c"/>
                         <outlet property="totalAmountLabel" destination="Hc3-4w-QLJ" id="S1h-Zx-C6g"/>
