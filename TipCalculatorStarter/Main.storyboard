@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="0Tz-Yl-coE">
             <objects>
-                <viewController id="bx0-nC-RK9" sceneMemberID="viewController">
+                <viewController id="bx0-nC-RK9" customClass="ViewController" customModule="TipCalculatorStarter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HrZ-DK-G9L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Ge-vZ-ocu">
                                 <rect key="frame" x="0.0" y="100" width="375" height="678"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULC-Q1-MZh">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULC-Q1-MZh" customClass="MyCustomView" customModule="TipCalculatorStarter" customModuleProvider="target">
                                         <rect key="frame" x="9.3333333333333428" y="0.0" width="356.33333333333326" height="305"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="zqH-4z-ynR">
@@ -72,7 +72,7 @@
                                                                 <color key="textColor" name="tcWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WMB-kQ-RjK">
+                                                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WMB-kQ-RjK">
                                                                 <rect key="frame" x="141" y="0.0" width="179.33333333333337" height="29"/>
                                                                 <segments>
                                                                     <segment title="15%"/>
@@ -152,20 +152,23 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-89-s0X">
-                                        <rect key="frame" x="0.0" y="628" width="375" height="50"/>
+                                        <rect key="frame" x="18.666666666666657" y="628" width="337.66666666666674" height="50"/>
                                         <color key="backgroundColor" name="tcDarkBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PYe-cL-mzl"/>
                                         </constraints>
-                                        <state key="normal" title="Reset">
+                                        <state key="normal" title="Calculate">
                                             <color key="titleColor" name="tcWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="calculateButtonPressed:" destination="bx0-nC-RK9" eventType="touchUpInside" id="Umi-mX-VfX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gwr-xO-EfE" firstAttribute="width" secondItem="5Ge-vZ-ocu" secondAttribute="width" multiplier="0.95" id="6fO-cF-Qri"/>
                                     <constraint firstItem="ULC-Q1-MZh" firstAttribute="height" secondItem="5Ge-vZ-ocu" secondAttribute="height" multiplier="0.45" id="aje-Ek-wHA"/>
-                                    <constraint firstItem="bkh-89-s0X" firstAttribute="width" secondItem="5Ge-vZ-ocu" secondAttribute="width" id="fGo-PF-yF4"/>
+                                    <constraint firstItem="bkh-89-s0X" firstAttribute="width" secondItem="5Ge-vZ-ocu" secondAttribute="width" multiplier="0.9" id="fGo-PF-yF4"/>
                                     <constraint firstItem="gwr-xO-EfE" firstAttribute="height" secondItem="5Ge-vZ-ocu" secondAttribute="height" multiplier="0.45" id="ntE-FK-657"/>
                                     <constraint firstItem="ULC-Q1-MZh" firstAttribute="width" secondItem="5Ge-vZ-ocu" secondAttribute="width" multiplier="0.95" id="wgN-aj-8wK"/>
                                 </constraints>
@@ -183,6 +186,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VAm-FC-o9r"/>
                     </view>
+                    <connections>
+                        <outlet property="billAmountLabel" destination="5Ad-aI-n2z" id="Ar3-Gw-Bv4"/>
+                        <outlet property="inputBillTextField" destination="MwY-QO-jcl" id="nUR-Di-dl8"/>
+                        <outlet property="inputBillView" destination="ULC-Q1-MZh" id="Mel-OL-vcW"/>
+                        <outlet property="outputTipView" destination="gwr-xO-EfE" id="A6O-h7-oHY"/>
+                        <outlet property="restButton" destination="bkh-89-s0X" id="Obe-36-L1X"/>
+                        <outlet property="tipAmountLabel" destination="m6n-xo-X3J" id="wqo-SU-Yqc"/>
+                        <outlet property="tipAmountOutputLabel" destination="Kf0-dM-ZwP" id="bdU-58-evm"/>
+                        <outlet property="tipPercentageLabel" destination="K6l-RR-5l6" id="7id-py-EGS"/>
+                        <outlet property="tipPercentageSegmentedController" destination="WMB-kQ-RjK" id="FKe-Uh-Z6c"/>
+                        <outlet property="totalAmountLabel" destination="Hc3-4w-QLJ" id="S1h-Zx-C6g"/>
+                        <outlet property="totalAmountOutputLabel" destination="CPM-Os-mKk" id="tht-94-egi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRw-2R-4pR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
